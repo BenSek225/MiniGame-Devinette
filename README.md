@@ -17,5 +17,15 @@ Ce projet est un jeu de devinette simple où l'ordinateur choisit un nombre alé
 - C
 - Bibliothèque standard (stdio.h, stdlib.h, time.h)
 
+## Installation
+- Cloner le dépôt :
+  - git clone https://github.com/votre_nom_utilisateur/jeu-de-devinette.git
+
+- Compiler le programme :
+  - gcc -o jeu_devinette jeu_devinette.c
+
+- Exécuter le programme :
+  - ./jeu_devinette
+
 ## Auteur
 Ben (Bienvenu Sekongo)
