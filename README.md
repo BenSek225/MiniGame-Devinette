@@ -19,7 +19,7 @@ Ce projet est un jeu de devinette simple où l'ordinateur choisit un nombre alé
 
 ## Installation
 - Cloner le dépôt :
-  - git clone https://github.com/votre_nom_utilisateur/jeu-de-devinette.git
+  - git clone https://github.com/BenSek225/jeu-de-devinette.git
 
 - Compiler le programme :
   - gcc -o jeu_devinette jeu_devinette.c
