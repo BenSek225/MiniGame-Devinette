@@ -1,0 +1,93 @@
+	Jeu de devinette : Les étudiants peuvent créer un jeu de devinette simple où l'ordinateur choisit un nombre aléatoire entre 1 et 100, et le joueur doit deviner le nombre. L'ordinateur doit donner des indices si le nombre est trop grand ou trop petit. Ce projet permettra aux étudiants de se familiariser avec les entrées et sorties de base, ainsi que les structures de contrôle conditionnelles telles que les boucles et les conditions.
+
+
+◘ 1- Le programme doit choisir un nombre aleatoire
+
+◘ 2- Pour corser le jeu, je vais essayer de ne donner que 11 tentatives
+
+	2-1 Donc une boucles de 10 tentative et dans chaque interation je devine un nombre.
+		a- printf("Encore plus petit !"); Si le nombre que l'on veut est encore plus petit que celui entree
+			a-1- Donc là on revient demander une autre tentative (boucle en 2-1)
+		b- printf("Encore plus grand !");Si le nombre que l'on veut est encore plus grand que celui entree
+			b-1- Donc là on revient demander une autre tentative (boucle en 2-1)
+		c- printf(" Nombre correct !");Si le nombre entree est similaire au nombre aleatoire choisi
+			c-1- Donc là on break la boucle
+
+◘ 3- Donc là on affiche le resultat final selon les tentatives. S'il trouve le bon resultat en moin se 11 tentatives, il as gagner mais si les 11 tentatives sont atteinte il as perdu.
+_________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	printf("Bienvenue au jeu de devinette !\n");
+	int Aleatoire = 0;
+	int Tentatives = 0;
+	int nombreEntree;
+	int Trouver = 0;
+	
+	const int MAX = 100, MIN = 1;
+	srand(time(NULL));
+	Aleatoire = (rand() % (MAX - MIN + 1)) + MIN;
+	printf("J'ai a choisi un nombre entre 1 et 100. A toi de le deviner en un maximum de 7 tentatives !\n ");
+
+	do{
+		Tentatives ++ ;
+		printf(" Quel est le nombre ?");
+		scanf("%d",&nombreEntree);
+
+		if(Aleatoire > nombreEntree){
+			printf("Encore plus grand !");
+		} else if (Aleatoire < nombreEntree){
+			printf("Encore plus petit !");
+		} else {
+			Trouver = 1
+			break ; }
+	} while(Tentatives < 7);
+
+	if(Trouver == 1);
+		printf("Bravo ! Vous avez trouver %d en %d essais", Aleatoire, Tentatives);
+	else
+		printf("Vous avez depasser les 11 tentatives autorisees. Le nombre etait: %d.", Aleatoire);
+
+	return 0;
+}
+
+____________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	printf("Bienvenue au jeu de devinette !\n");
+	int Aleatoire = 0;
+	int nombreEntree;
+	int Trouver = 0;
+	
+	srand(time(NULL));
+	Aleatoire = rand() % 100 + 1;
+	printf("Je pense à un nombre entre 1 et 100, essayez de le deviner.\n");
+
+    // boucle for pour donner 10 chances au joueur
+    for (int i = 1; i <= 10; i++) {
+	printf("Quel est le nombre ?");
+        printf("Tentative %d : ", i);
+        scanf("%d", &nombreEntree); // demander la tentative du joueur
+
+        if (nombreEntree == Aleatoire) { // si le joueur a trouvé le nombre
+            printf("Bravo, vous avez trouvé %d en %d essais \n", Aleatoire, i);
+            return 0;
+        } else if (nombreEntree < Aleatoire) { // si le nombre deviné est trop petit
+            printf("Le nombre est plus grand que %d\n", nombreEntree);
+        } else { // si le nombre deviné est trop grand
+            printf("Le nombre est plus petit que %d\n", nombreEntree);
+        }
+    }
+
+    // si le joueur n'a pas trouvé le nombre après 10 tentatives
+    printf("Vous avez perdu, le nombre était %d\n", Aleatoire);
+
+    return 0;
+}
